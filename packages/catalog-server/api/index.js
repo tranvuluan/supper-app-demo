@@ -9,6 +9,8 @@ const shell = require('../data/host' + suffix);
 const booking = require('../data/booking' + suffix);
 const shopping = require('../data/shopping' + suffix);
 const dashboard = require('../data/dashboard' + suffix);
+const ocr = require('../data/ocr' + suffix);
+
 
 const app = express();
 const port = process.env.PORT ?? 3000;
@@ -42,6 +44,13 @@ app.get('/dashboard', (req, res) => {
   const appVersion = req.query.appVersion;
 
   res.send(dashboard[platform][appVersion]);
+});
+
+app.get('/ocr', (req, res) => {
+  const platform = req.query.platform;
+  const appVersion = req.query.appVersion;
+
+  res.send(ocr[platform][appVersion]);
 });
 
 app.listen(port, () => {

@@ -37,6 +37,11 @@ const ServicesScreen = ({navigation}: ServiceScreenProps) => {
     [navigation],
   );
 
+  const openOCR = useCallback(
+    () => navigation.navigate('OCR'),
+    [navigation],
+  );
+
   const renderItem = useCallback(
     ({item}: ListRenderItemInfo<ServiceMenuItem>) => {
       const map = new Map([
@@ -44,6 +49,7 @@ const ServicesScreen = ({navigation}: ServiceScreenProps) => {
         ['news', openNews],
         ['shopping', openShopping],
         ['dashboard', openDashboard],
+        ['ocr', openOCR]
       ]);
 
       const onPress =
@@ -51,7 +57,7 @@ const ServicesScreen = ({navigation}: ServiceScreenProps) => {
 
       return <List.Item title={item.title} onPress={onPress} />;
     },
-    [openBooking, openDashboard, openNews, openShopping],
+    [openBooking, openDashboard, openNews, openShopping, openOCR],
   );
 
   return (

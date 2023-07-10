@@ -15,6 +15,9 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
     platform: Platform.OS,
     appName: 'host', // for testing purposes
   });
+  console.log('[ShellApp] containersURL: ', containersURL)
+  console.log('[ShellApp] caller: ', caller)
+
   const response = await fetch(containersURL);
 
   const containers = await response.json();
@@ -33,6 +36,8 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   if (!url) {
     return undefined;
   }
+  console.log('[ShellApp] response: ', response)
+
 
   return {
     url,
