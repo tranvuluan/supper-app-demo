@@ -13,7 +13,7 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   const containersURL = getContainersURL({
     version: appVersion,
     platform: Platform.OS,
-    appName: 'host', // for testing purposes
+    appName: 'shell', // for testing purposes
   });
   console.log('[ShellApp] containersURL: ', containersURL)
   console.log('[ShellApp] caller: ', caller)
@@ -38,6 +38,7 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   }
   console.log('[ShellApp] response: ', response)
 
+  console.log('App name: ', appName);
 
   return {
     url,
@@ -48,4 +49,4 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   };
 });
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent('shell', () => App);
